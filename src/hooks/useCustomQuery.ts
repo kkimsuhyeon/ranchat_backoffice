@@ -20,7 +20,7 @@ export const MUTATION = "mutation";
 type QueryType = typeof LAZY | typeof QUERY | typeof MUTATION;
 
 type CustomQueryParamsType<T extends QueryType, P> = {
-  type: T;
+  type?: T;
   query: DocumentNode;
   variables?: P;
 };
@@ -65,7 +65,8 @@ type ReturnType<T extends QueryType, P, R> = T extends typeof LAZY
   ? MutationReturnType<P, R>
   : undefined;
 
-function useCustomQuery<P, R, T extends QueryType = typeof LAZY>({
+// todo refactor
+function useCustomQuery<P, R, T extends QueryType>({
   type,
   query,
   variables,
