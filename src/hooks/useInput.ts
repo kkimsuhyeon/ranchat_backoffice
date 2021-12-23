@@ -2,17 +2,17 @@ import React, { useState, useCallback } from "react";
 
 export interface useInputProps {
   defaultValue?: string;
-  preChange?: () => void;
+  preChange?: (value: string) => string;
 }
 
-function useInput({ defaultValue = "", preChange }: useInputProps) {
-  const [value, setValue] = useState<string>(defaultValue);
+function useInput({ defaultValue, preChange }: useInputProps) {
+  const [value, setValue] = useState(defaultValue ?? "");
 
   const change = useCallback(
     (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | string) => {
-      preChange && preChange();
       const value = typeof e === "string" ? e : e.target.value;
-      setValue(value);
+      const result = (preChange && preChange(value)) ?? value;
+      setValue(result);
     },
     [preChange]
   );

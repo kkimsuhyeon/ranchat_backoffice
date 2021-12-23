@@ -1,7 +1,9 @@
 import React from "react";
 
+import UserRegistContainer from "containers/UserRegistContainer";
+
 function UserRegist() {
-  return <div>regist</div>;
+  return <UserRegistContainer />;
 }
 
 export default UserRegist;

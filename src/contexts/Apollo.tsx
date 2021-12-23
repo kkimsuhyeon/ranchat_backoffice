@@ -12,8 +12,8 @@ import { WebSocketLink } from "@apollo/client/link/ws";
 import { getMainDefinition } from "@apollo/client/utilities";
 import { SubscriptionClient } from "subscriptions-transport-ws";
 
-const GRAPHQL_URI = "http://localhost:4000/graphql";
-const SOCKET_URI = "ws://localhost:4000/graphql";
+const GRAPHQL_URI = "https://639d-221-148-29-85.ngrok.io/graphql";
+const SOCKET_URI = "wss://639d-221-148-29-85.ngrok.io/graphql";
 
 function ApolloProvider({ children }: { children: React.ReactNode }) {
   const httpLink = new HttpLink({ uri: GRAPHQL_URI });

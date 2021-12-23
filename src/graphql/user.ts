@@ -24,3 +24,21 @@ export const QUERY_REQUEST_USER_LIST = gql`
     }
   }
 `;
+
+export const MUTATION_REQUEST_CREATE_USER = gql`
+  mutation createUser(
+    $email: String!
+    $password: String!
+    $firstName: String!
+    $lastName: String!
+    $bio: Bio
+  ) {
+    createUser(
+      email: $email
+      password: $password
+      firstName: $firstName
+      lastName: $lastName
+      bio: $bio
+    )
+  }
+`;

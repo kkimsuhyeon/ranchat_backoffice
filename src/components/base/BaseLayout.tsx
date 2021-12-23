@@ -11,4 +11,5 @@ const Wrapper = styled.div`
   min-width: 1200px;
   width: 100%;
   padding: 1rem;
+  height: 100vh;
 `;
